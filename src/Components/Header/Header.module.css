@@ -1,0 +1,21 @@
+.header {
+    width: 100%;
+    background-color: #1A202C;
+    height: 60px;
+    top: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.header div {
+    padding: 10px;
+}
+
+.left {}
+
+.right {}
+
+.center {}
