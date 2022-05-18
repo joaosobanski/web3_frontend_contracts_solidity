@@ -7,6 +7,11 @@
                 "name": "LIQUIDITY TOKEN",
                 "symbol": "LIQUIDITY",
                 "contract": "0x9CEBC0Bf69E3F2482BF5BdDfD3eDe48c59215D70"
+            },
+            {
+                "name": "Ether",
+                "symbol": "ETH",
+                "contract": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"
             }
         ],
         "contracts": [

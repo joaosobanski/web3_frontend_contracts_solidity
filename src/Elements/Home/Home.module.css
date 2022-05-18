@@ -1,0 +1,10 @@
+.home {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.a {
+    color: #b9b5fa;
+    cursor: pointer;
+}

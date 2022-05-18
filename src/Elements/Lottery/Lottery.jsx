@@ -135,8 +135,8 @@ export const Lottery = () => {
 
     return (
         <div className={style['lottery']}>
-            <Label text={`Value for Ticket ${valueTicket}`} />
             <Label text={`My LIQUIDITY Tokens ${totalBalance}`} />
+            <Label text={`Value for Ticket ${valueTicket}`} />
             <Label text={`TVL Lottery ${contractLotteryBalance}`} />
             {
                 lotteryWinner ?

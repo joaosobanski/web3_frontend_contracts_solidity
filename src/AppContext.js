@@ -5,6 +5,7 @@ export const AppContext = ({ children }) => {
     const [address, setAddress] = useState("");
     const [loading, setLoading] = useState(false);
     const [mobile, setMobile] = useState(false);
+    const [ethBalance, setEthBalance] = useState();
     const [chainId, setChainId] = useState('');
 
     return (
@@ -13,7 +14,8 @@ export const AppContext = ({ children }) => {
                 address, setAddress,
                 loading, setLoading,
                 mobile, setMobile,
-                chainId, setChainId
+                chainId, setChainId,
+                ethBalance, setEthBalance
             }}
         >
             {children}
@@ -27,12 +29,14 @@ export const useAppContext = () => {
         address, setAddress,
         loading, setLoading,
         mobile, setMobile,
-        chainId, setChainId
+        chainId, setChainId,
+        ethBalance, setEthBalance
     } = context;
     return {
         address, setAddress,
         loading, setLoading,
         mobile, setMobile,
-        chainId, setChainId
+        chainId, setChainId,
+        ethBalance, setEthBalance
     };
 };
