@@ -1,3 +1,11 @@
-.pointer{
+.pointer {
     cursor: pointer;
+    padding: 5px;
+    padding-bottom: 6px;
+}
+
+.pointer:hover {
+    border-bottom: 1px solid #7a70fa;
+    color: #7a70fa;
+    padding: 5px;
 }

@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect } from 'react'; 
 import { useAppContext } from '../../AppContext';
 import { Home } from '../../Elements/Home/Home';
 import { Footer } from '../Footer/Footer';
@@ -7,8 +6,7 @@ import { Header } from '../Header/Header';
 import style from './Container.module.css';
 import { Loading } from './Loading';
 
-export const Container = ({ children }) => {
-    const nav = useNavigate();
+export const Container = ({ children }) => { 
     const { loading, address, mobile, setMobile } = useAppContext();
 
     useEffect(() => {

@@ -11,8 +11,10 @@ export const NavigateTo = ({ to, children }) => {
     }
 
     return (
-        <label className={style['pointer']} onClick={onClick}>
-            {children}
-        </label>
+        <React.Fragment>
+            <label className={style['pointer']} onClick={onClick}>
+                {children}
+            </label>
+        </React.Fragment>
     )
 }

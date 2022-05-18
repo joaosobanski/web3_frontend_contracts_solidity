@@ -1,13 +1,9 @@
-import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect } from 'react'; 
 import { useAppContext } from '../../AppContext';
-import { Home } from '../../Elements/Home/Home';
-import { Loading } from './Loading';
-import style from './Context.module.css';
+import { Home } from '../../Elements/Home/Home'; 
 
 
-export const Context = ({ children }) => {
-    const nav = useNavigate();
+export const Context = ({ children }) => { 
     const { loading, address } = useAppContext();
 
     useEffect(() => {
@@ -15,8 +11,7 @@ export const Context = ({ children }) => {
     }, [loading, address]);
 
     return (
-        <React.Fragment>
-            <Loading />
+        <React.Fragment> 
             {
                 address ?
                     <React.Fragment>

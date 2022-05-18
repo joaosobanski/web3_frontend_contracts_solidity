@@ -1,5 +1,4 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import { useAppContext } from '../../AppContext';
 import { Button } from '../../Fragments/Button/Button';
 import { NavigateTo } from '../Navigation/NavigateTo';
@@ -7,8 +6,40 @@ import { NavigationContent } from '../Navigation/NavigationContent';
 import style from './Header.module.css';
 
 export const Header = () => {
-    const { loading, address, mobile, setMobile } = useAppContext();
-    const nav = useNavigate();
+    const { mobile, setAddress, address, setChainId } = useAppContext();
+
+    const onClickConnect = async () => {
+
+        if (window.ethereum && window.ethereum.isMetaMask) {
+            window.ethereum
+                .request({ method: "eth_requestAccounts" })
+                .then((result) => {
+                    setAddress(result[0]);
+                })
+                .catch((error) => {
+                    alert(error.message);
+                });
+            const chainId_ = await window.ethereum.request({ method: "eth_chainId" });
+            setChainId(chainId_);
+            console.log(chainId_)
+            /*
+            const chainId_ = await window.ethereum.request({ method: "eth_chainId" });
+
+            await window.ethereum
+                .request({
+                    method: "wallet_switchEthereumChain",
+                    params: [{ chainId: "0x3" }],
+                })
+                .then((e) => {
+                    setChainId(chainId_);
+                });*/
+        } else {
+            console.log("Need to install MetaMask");
+            alert("Please install MetaMask browser extension to interact");
+        }
+    }
+
+
     return (
         <div className={style['header']}>
             <div className={style['left']}>
@@ -21,7 +52,10 @@ export const Header = () => {
                 </div>
             }
             <div className={style['right']}>
-                <Button onClick={() => { nav('/lottery') }}>Connect</Button>
+                {
+                    !address &&
+                    <Button onClick={onClickConnect}>Connect</Button>
+                }
             </div>
         </div>
     )

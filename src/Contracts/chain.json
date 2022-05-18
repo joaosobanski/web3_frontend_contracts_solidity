@@ -1,0 +1,19 @@
+[
+    {
+        "chain": "0x4",
+        "chain_name": "rinkeby",
+        "token": [
+            {
+                "name": "LIQUIDITY TOKEN",
+                "symbol": "LIQUIDITY",
+                "contract": "0x9CEBC0Bf69E3F2482BF5BdDfD3eDe48c59215D70"
+            }
+        ],
+        "contracts": [
+            {
+                "name": "LOTTERY",
+                "contract": "0xBDb1FEA4C7f01F4983a39b4e9305791d1a05a607"
+            }
+        ]
+    }
+]

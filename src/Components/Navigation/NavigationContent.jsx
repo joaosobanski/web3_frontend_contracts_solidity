@@ -1,10 +1,19 @@
 import React from 'react';
-import { NavigateTo } from './NavigateTo';
+import { useAppContext } from '../../AppContext';
+import { NavigateTo } from './NavigateTo'; 
+
 
 export const NavigationContent = () => {
+const { address, chainId } = useAppContext(); 
+
     return (
         <React.Fragment>
-            <NavigateTo to='/lottery'>teste </NavigateTo>
+            {
+                address &&
+                <React.Fragment>
+                    <NavigateTo to='/lottery'>lottery</NavigateTo>
+                </React.Fragment>
+            }
         </React.Fragment>
     )
 }

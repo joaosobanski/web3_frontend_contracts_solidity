@@ -1,8 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Lottery } from './Elements/Lottery/Lottery';
-import { Header } from './Components/Header/Header';
-import { Footer } from './Components/Footer/Footer';
 import { Context } from './Components/Context/Context';
 import { Home } from './Elements/Home/Home';
 import { AppContext } from './AppContext';
@@ -16,7 +14,6 @@ export const App = () => {
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/lottery' element={<Context><Lottery /></Context>} />
-
           </Routes>
         </Container>
       </AppContext>
