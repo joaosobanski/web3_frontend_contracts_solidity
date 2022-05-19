@@ -6,7 +6,7 @@ import { Button } from '../../Fragments/Button/Button';
 import { Label } from '../../Fragments/Label/Label';
 import { NavigateTo } from '../Navigation/NavigateTo';
 import { NavigationContent } from '../Navigation/NavigationContent';
-import liquidityAbi from '../../Contracts/liquidity.json';
+import liquidityAbi from '../../Contracts/ERC20.json';
 import style from './Header.module.css';
 
 export const Header = () => {

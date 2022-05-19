@@ -26,5 +26,35 @@
                 "contract": "0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D"
             }
         ]
+    },
+    {
+        "chain": "0x3",
+        "chain_name": "ropsten",
+        "token": [
+            {
+                "name": "REACT TOKEN",
+                "symbol": "REACT",
+                "contract": "0x2CFB8BEdD60D1a004e32BCf8c00e21BD6738216e"
+            },
+            {
+                "name": "Wrapped Ether",
+                "symbol": "WETH",
+                "contract": "0xc778417E063141139Fce010982780140Aa0cD5Ab"
+            }
+        ],
+        "contracts": [
+            {
+                "name": "LOTTERY",
+                "contract": "0xBDb1FEA4C7f01F4983a39b4e9305791d1a05a607"
+            }
+        ],
+        "routerV2": [
+            {
+                "name": "UniswapV2Router02",
+                "contract": "0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D"
+            }
+        ]
     }
 ]
+
+

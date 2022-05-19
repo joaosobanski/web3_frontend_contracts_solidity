@@ -6,7 +6,7 @@ import { Label } from '../../Fragments/Label/Label';
 import { InputNumber } from '../../Fragments/Input/Input';
 import style from './Swap.module.css';
 import { BigNumber, ethers } from 'ethers';
-import liquidityAbi from '../../Contracts/liquidity.json'
+import liquidityAbi from '../../Contracts/ERC20'
 import routerAbi from '../../Contracts/UniswapV2Router02.json'
 
 export const Swap = () => {
@@ -58,7 +58,7 @@ export const Swap = () => {
 
     const listenContractLiquidity = async (signer) => {
         const contrato = new ethers.Contract(
-            getContractToken(chainId.toString(), ('LIQUIDITY').toString()),
+            getContractToken(chainId.toString(), ('REACT').toString()),
             liquidityAbi,
             signer
         );
@@ -145,19 +145,30 @@ export const Swap = () => {
         }
     }
 
+    const getValueApproved = async () => {
+
+        let ret = await contractLiquidity.allowance(address, getContractToken(chainId.toString(), ('REACT').toString()));
+        const etherValor = ethers.utils.formatUnits(ret.toHexString(), "ether");
+        return (parseInt(etherValor) != 0);
+    }
+
     const swapExactTokenEth_ = async () => {
         setLoading(true);
 
         try {
-            let contractA = (tokens.find(t => t.symbol == tokenA).contract);
-            let contractB = (tokens.find(t => t.symbol == tokenB).contract);
-            let path = [contractA, contractB];
-            const ret = await contractRouter.swapExactTokensForETH(ethers.utils.parseEther(amount_a), 1, path, address, 99999999999);
-
+            if (await getValueApproved()) {
+                let contractA = (tokens.find(t => t.symbol == tokenA).contract);
+                let contractB = (tokens.find(t => t.symbol == tokenB).contract);
+                let path = [contractA, contractB];
+                const ret = await contractRouter.swapExactTokensForETH(ethers.utils.parseEther(amount_a), 1, path, address, 99999999999).catch(e => alert(e));
+                await ret.wait()
+            } else {
+                let ret = await contractLiquidity.approve(contractA, ethers.utils.parseEther(amount_a));
+                await ret.wait()
+            }
 
         } catch (er) {
             console.log(er)
-            alert(er);
         } finally {
             setLoading(false);
         }
@@ -171,11 +182,10 @@ export const Swap = () => {
             let path = [contractA, contractB];
 
             const ret = await contractRouter.swapExactETHForTokens(0, path, address, 99999999999,
-                { value: ethers.utils.parseEther(amount_a).toString(), gasPrice: 1000000 });
+                { value: ethers.utils.parseEther(amount_a).toString(), gasPrice: 1000000 }).catch(e => alert(e));
             await ret.wait()
         } catch (er) {
             console.log(er)
-            alert(er);
         } finally {
             setLoading(false);
         }

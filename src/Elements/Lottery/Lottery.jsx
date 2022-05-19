@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useAppContext } from '../../AppContext';
 import lotteryAbi from '../../Contracts/sorteio.json';
-import liquidityAbi from '../../Contracts/liquidity.json'
+import liquidityAbi from '../../Contracts/ERC20'
 import { ethers } from 'ethers';
 import { getContract, getContractToken } from '../../Contracts/chain';
 import { Label } from '../../Fragments/Label/Label';
@@ -36,7 +36,7 @@ export const Lottery = () => {
 
     const listenContractLiquidity = async (signer) => {
         const contrato = new ethers.Contract(
-            getContractToken(chainId.toString(), ('LIQUIDITY').toString()),
+            getContractToken(chainId.toString(), ('REACT').toString()),
             liquidityAbi,
             signer
         );
