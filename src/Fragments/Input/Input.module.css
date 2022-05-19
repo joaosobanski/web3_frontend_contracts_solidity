@@ -1,0 +1,13 @@
+.input {
+    max-width: 150px;
+    min-height: 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #6157FF;
+    background-color: #d1ceff;
+    font-size: 20px;
+}
+
+.input:hover {
+    border: 1px solid #6157FF;
+}

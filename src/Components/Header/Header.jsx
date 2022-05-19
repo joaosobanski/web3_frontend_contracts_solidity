@@ -66,12 +66,9 @@ export const Header = () => {
             <div className={style['left']}>
                 <NavigateTo to='/'>Home</NavigateTo>
             </div>
-            {
-                !mobile &&
-                <div className={style['center']}>
-                    <NavigationContent />
-                </div>
-            }
+            <div className={style['center']}>
+                <NavigationContent />
+            </div>
             <div className={style['right']}>
                 {
                     !address ?

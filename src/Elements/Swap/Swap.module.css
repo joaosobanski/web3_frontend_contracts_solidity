@@ -1,0 +1,25 @@
+.swap {
+    padding: 10px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    align-items: center;
+    border: 1px solid #6157FF;
+    border-radius: 20px;
+}
+
+.item {
+    display: flex;
+    flex-direction: row;
+    align-self: flex-start; 
+    padding: 10px;
+}
+
+.colunm {
+    display: flex;
+    flex-direction: column;
+    max-width: 160px;
+}

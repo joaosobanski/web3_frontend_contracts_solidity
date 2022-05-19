@@ -11,7 +11,7 @@ export const Loading = () => {
         <React.Fragment>
             {
                 loading &&
-                <div className={styles['modalBackground']} >
+                <div className={styles['modalBackground']}>
                     <div className={styles['loader']} onClick={onClose} />
                 </div>
             }

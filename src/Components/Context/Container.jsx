@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'; 
+import React, { useEffect } from 'react';
 import { useAppContext } from '../../AppContext';
 import { Home } from '../../Elements/Home/Home';
 import { Footer } from '../Footer/Footer';
@@ -6,14 +6,17 @@ import { Header } from '../Header/Header';
 import style from './Container.module.css';
 import { Loading } from './Loading';
 
-export const Container = ({ children }) => { 
+export const Container = ({ children }) => {
     const { loading, address, mobile, setMobile } = useAppContext();
 
     useEffect(() => {
         if (window.innerWidth <= 900) {
             setMobile(true);
         }
-    }, [loading, address, window]);
+        if (window.innerWidth >= 900) {
+            setMobile(false);
+        }
+    }, [loading, address, window.innerWidth]);
 
     return (
         <div className={style['container']}>
@@ -32,10 +35,7 @@ export const Container = ({ children }) => {
                             </React.Fragment>
                     }
                 </div>
-                {
-                    mobile &&
-                    <Footer />
-                }
+                <Footer />
             </div>
         </div>
     )

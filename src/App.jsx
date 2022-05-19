@@ -5,6 +5,7 @@ import { Context } from './Components/Context/Context';
 import { Home } from './Elements/Home/Home';
 import { AppContext } from './AppContext';
 import { Container } from './Components/Context/Container';
+import { Swap } from './Elements/Swap/Swap';
 
 export const App = () => {
   return (
@@ -14,6 +15,7 @@ export const App = () => {
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/lottery' element={<Context><Lottery /></Context>} />
+            <Route path='/swap' element={<Swap />} />
           </Routes>
         </Container>
       </AppContext>
