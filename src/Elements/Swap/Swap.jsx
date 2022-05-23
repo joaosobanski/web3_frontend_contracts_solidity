@@ -156,10 +156,10 @@ export const Swap = () => {
         setLoading(true);
 
         try {
+            let contractA = (tokens.find(t => t.symbol == tokenA).contract);
+            let contractB = (tokens.find(t => t.symbol == tokenB).contract);
+            let path = [contractA, contractB];
             if (await getValueApproved()) {
-                let contractA = (tokens.find(t => t.symbol == tokenA).contract);
-                let contractB = (tokens.find(t => t.symbol == tokenB).contract);
-                let path = [contractA, contractB];
                 const ret = await contractRouter.swapExactTokensForETH(ethers.utils.parseEther(amount_a), 1, path, address, 99999999999).catch(e => alert(e));
                 await ret.wait()
             } else {
